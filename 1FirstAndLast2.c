@@ -39,7 +39,7 @@ list* insert (list* ptr_list,char* line)
 {
 	int i =0,j;
 	char word[STR_SIZE] = "\0";
-	while ((line[i] != '.')&&(line[i] != '\0'))
+	while (line[i] != '\0')
 	{
 		if (line[i] == ' ')
 		{
@@ -48,7 +48,7 @@ list* insert (list* ptr_list,char* line)
 		}
 		
 		j = 0;
-		while ( (line[i] != ' ') &&(line[i] != '.')&&(line[i] != '\0') )
+		while ( (line[i] != ' ') && (line[i] != '\0') )
 		{
 			word[j] = line[i];
 			i++;
