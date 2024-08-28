@@ -77,15 +77,15 @@ list* del(list* ptr_list)
 }
 
 
-list* print (list* ptr_list)
+void print (list* ptr_list)
 {
 
 	while (ptr_list)
 	{
 		printf("%s ", ptr_list->word);
-		ptr_list = del(ptr_list);
-		if (ptr_list)
+		if(ptr_list->next !=0)
 		{
+			ptr_list = ptr_list->next;
 			ptr_list = del(ptr_list);
 		}
 		else
@@ -93,7 +93,6 @@ list* print (list* ptr_list)
 			break;
 		}
 	}
-	return ptr_list;
 }
 
 
@@ -103,7 +102,7 @@ int main(int argc, char **argv)
 	scanf("%[^\n]", inputLine);
 	list* Head_ptr_list = NULL;
 	Head_ptr_list = insert(Head_ptr_list,inputLine);
-	Head_ptr_list = print(Head_ptr_list);
+	print(Head_ptr_list);
 	return 0;
 }
 
