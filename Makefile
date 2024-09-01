@@ -1,13 +1,19 @@
 all: Kurs
 
-Kurs: report.o temp_function.o
-	gcc -o kurs report.o temp_function.o
+Kurs: mainANDinit.o inputANDconrollUserDron.o AIcontrolAutoDron.o HelpFunction.o
+	gcc -o kurs mainANDinit.o inputANDconrollUserDron.o AIcontrolAutoDron.o HelpFunction.o
 
-report.o: report.c temp_function.h
-	gcc  -c -o report.o report.c
+mainANDinit.o: mainANDinit.c HeaderFail.h
+	gcc  -c -o mainANDinit.o mainANDinit.c
 
-temp_function.o: temp_function.c
-	gcc  -c -o temp_function.o temp_function.c
+inputANDconrollUserDron.o: inputANDconrollUserDron.c
+	gcc  -c -o inputANDconrollUserDron.o inputANDconrollUserDron.c
+
+AIcontrolAutoDron.o: AIcontrolAutoDron.c
+	gcc  -c -o AIcontrolAutoDron.o AIcontrolAutoDron.c
+
+HelpFunction.o: HelpFunction.c
+	gcc  -c -o HelpFunction.o HelpFunction.c
 	
 clean:
 	del *.o 
